@@ -1,31 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<h1 style='color:red'>Calculo do amor: Aquiles e Elizabeth ❤️❤️❤️ <h1>
-    <img src="img/download (5).jpg" alt=""><br>
-</body>
 <?php
-
-$pessoa1="100";
-$pessoa2="100";
-$amor= ($pessoa1+$pessoa2)/2;
-
-echo "Essa é a porcentagem de o amor entre eles dar certo: $amor%";
-
-if ($amor<"60"){
-    echo"<br>";
-    echo"<br>";
- echo "Está quase mano 🙁";
-}elseif($amor>"60"){
-    echo"<br>";
-    echo"<br>";
-    echo "O Amor está acontecendo ❤️";
+include_once 'index.html';
+// Recebe os nomes passados por GET
+if (isset($_GET['nome']) && isset($_GET['nome2'])) {
+    $nome1 = $_GET['nome'];
+    $nome2 = $_GET['nome2'];
+} else {
+    echo "Por favor, insira seus nomes!";
+    exit;
 }
 
+// Gera uma porcentagem de amor aleatória
+$amor = rand(1, 100);
+
+// Mostra a porcentagem do amor entre os dois nomes
+echo "Essa é a porcentagem do amor entre $nome1 e $nome2 dar certo: $amor%";
+
+// Mostra uma mensagem de amor com base na porcentagem gerada
+if ($amor < 60) {
+    echo "<br>";
+    echo "<br>";
+    echo "Está quase mano 🙁";
+} elseif ($amor >= 60) {
+    echo "<br>";
+    echo "<br>";
+    echo "O Amor está acontecendo ❤️";
+} elseif ($amor <= 10) {
+    echo "<br>";
+    echo "<br>";
+    echo "Foi triste mano 😭";
+}
+
+// Mostra um botão para voltar à página inicial
+echo "<br>";
+echo "<button onclick=\"window.location='index.html'\">Voltar</button>";
+
 ?>
-</html>
